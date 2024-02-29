@@ -1,0 +1,15 @@
+mat-sidenav-container {
+  height: 100%;
+
+  mat-nav-list {
+    .sidenav-title {
+      text-align: center;
+    }
+  }
+
+  mat-sidenav-content {
+    h1 {
+      color: var(--primary-color);
+    }
+  }
+}

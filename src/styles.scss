@@ -1,0 +1,47 @@
+/* You can add global styles to this file, and also import other style files */
+
+:root {
+  /* Esquema principal */
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+
+  /* Small Switch Palette */
+  --primary-color: #4C2882;
+  --secondary-color: #488CA8;
+  --background-color: #E7F3F9;
+
+  /* Colores principales en Gradient */
+  --primary-color-5: #4C2882;
+  --primary-color-4: #734BAA;
+  --primary-color-3: #9C70D3;
+  --primary-color-2: #C597FD;
+  --primary-color-1: #F0BFFF;
+
+  --secondary-color-5: #0052AA;
+  --secondary-color-4: #0075C0;
+  --secondary-color-3: #0094C5;
+  --secondary-color-2: #00B1BF;
+  --secondary-color-1: #38CBB6;
+
+
+  /* Alternativas que pueden encajar con el aspecto de la app */
+  --alternative-color-5: #E8D5B5;
+  --alternative-color-2: #FFFADE;
+  /* --background-color: #03001C; */
+
+  /* color-scheme: light dark; */
+}
+
+html {
+  font-size: 62.5%; /* 1 rem = 10 px */
+  background-color: var(--background-color);
+  height: 100%;
+}
+
+body {
+  font-size: 1.6rem; /* dejamos los tamaños de fuente por defecto */
+  margin: 0;
+  height: 100%;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}

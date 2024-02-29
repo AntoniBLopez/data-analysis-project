@@ -1,9 +1,25 @@
+.icon-container {
+  position: absolute;
+  z-index: 10;
+  top: 57px;
+  left: 121px; /* Ajusta esta propiedad para que el icono sobresalga como desees */
+  transform: translateY(-50%);
+  // background-color: white;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: left 0.3s;
+}
 mat-sidenav-container {
   height: 100%;
 
+
+  // mat-sidenav.mat-drawer-opened .icon-container {
+  //   left: 20px; /* Ajusta esta propiedad para que el icono se mueva cuando el sidenav está abierto */
+  // }
   mat-nav-list {
-    .sidenav-title {
+    .title {
+      margin: 0;
       text-align: center;
+      font-weight: 500;
     }
   }
 

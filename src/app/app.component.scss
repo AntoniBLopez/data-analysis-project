@@ -1,19 +1,26 @@
-
-nav {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-
-  .options {
+  nav {
     display: flex;
-    gap: 16px;
-  }
+    align-items: center;
+    justify-content: space-between;
+    height: 60px;
 
-  img {
-    width: 40px;
-    height: 40px;
+    button {
+      background-color: var(--background-color);
+      border: none;
+      box-shadow: none;
+      height: 100%;
+
+      mat-icon {
+        transform: scale(3);
+        margin: 0px 3px 0px 0px;
+      }
+    }
+
+    img {
+      width: 40px;
+      height: 40px;
+    }
   }
-}
 
 footer {
   display: flex;
@@ -23,6 +30,7 @@ footer {
     width: 30px;
     height: 30px;
   }
+
   .myWebimg {
     width: 25px;
     height: 25px;

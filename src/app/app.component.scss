@@ -25,15 +25,25 @@
 footer {
   display: flex;
   justify-content: center;
+  height: 80px;
+  align-items: center;
+  gap: 10px;
 
   img {
-    width: 30px;
-    height: 30px;
+    width: 40px;
+    height: 40px;
+  }
+  img:hover {
+    transform: scale(1.2);
+    transition: ease 0.5;
   }
 
   .myWebimg {
-    width: 25px;
-    height: 25px;
-    padding-bottom: 2.5px;
+    width: 35px;
+    height: 35px;
+  }
+  .myWebimg:hover {
+    transform: scale(1.2);
+    transition: ease 0.5;
   }
 }

@@ -2,15 +2,22 @@ import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { SidenavComponent } from './sidenav/sidenav.component';
+import { MatSidenav, MatSidenavModule } from '@angular/material/sidenav';
+import { MatIconModule } from '@angular/material/icon';
 
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, MatSlideToggleModule, SidenavComponent],
+  imports: [RouterOutlet, MatSlideToggleModule, SidenavComponent, MatSidenavModule, MatIconModule],
   template: `
     <header>
       <nav>
+        <div #menuicon class="icon-container" (click)="sidenav.toggle()">
+          <button mat-icon-button>
+            <mat-icon>menu</mat-icon>
+          </button>
+        </div>
         <img src="https://img.icons8.com/nolan/96/financial-growth-analysis.png" alt="Icono principal de la página">
         <div class="options">
           <select name="JobAnalisis" id="jobAnalysisId">

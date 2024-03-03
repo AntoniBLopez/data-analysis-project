@@ -1,34 +1,24 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { SidenavComponent } from './sidenav/sidenav.component';
 import { MatSidenav, MatSidenavModule } from '@angular/material/sidenav';
+import { SidenavService } from './services/sidenav.service';
 import { MatIconModule } from '@angular/material/icon';
+import {MatButtonModule} from '@angular/material/button';
 
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, MatSlideToggleModule, SidenavComponent, MatSidenavModule, MatIconModule],
+  imports: [RouterOutlet, MatSlideToggleModule, SidenavComponent, MatSidenavModule, MatIconModule, MatButtonModule],
   template: `
     <header>
       <nav>
-        <div #menuicon class="icon-container" (click)="sidenav.toggle()">
-          <button mat-icon-button>
-            <mat-icon>menu</mat-icon>
-          </button>
-        </div>
+        <button mat-button (click)="toggleSidenav()">
+          <mat-icon>menu</mat-icon>
+        </button>
         <img src="https://img.icons8.com/nolan/96/financial-growth-analysis.png" alt="Icono principal de la página">
-        <div class="options">
-          <select name="JobAnalisis" id="jobAnalysisId">
-            <option value="jobAnalysis" selected="selected" hidden>Job Analysis</option>
-            <option value="Software">Software</option>
-          </select>
-          <select name="FertilityAnalysis" id="fertilityAnalysis">
-            <option value="fertilityAnalysis" selected="selected" hidden>Fertility Analysis</option>
-            <option value="Mundial">De todo el mundo</option>
-          </select>
-        </div>
         <a href="https://github.com/ToniBLopez/data-analysis-project">See code</a>
         <mat-slide-toggle>Toggle me!</mat-slide-toggle>
       </nav>
@@ -44,5 +34,12 @@ import { MatIconModule } from '@angular/material/icon';
   styleUrl: './app.component.scss'
 })
 export class AppComponent {
+  @ViewChild('sidenav') sidenav!: MatSidenav;
   title = 'data-analysis-project';
+
+  constructor(private sidenavService: SidenavService) {}
+
+  toggleSidenav() {
+    this.sidenavService.toggle();
+  }
 }

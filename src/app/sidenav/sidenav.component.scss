@@ -1,29 +1,52 @@
 .icon-container {
-  position: absolute;
-  z-index: 10;
-  top: 57px;
-  left: 121px; /* Ajusta esta propiedad para que el icono sobresalga como desees */
+  // position: absolute;
+  // z-index: 10;
+  // top: 14px;
+  // left: 0px;
   transform: translateY(-50%);
-  // background-color: white;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  transition: left 0.3s;
+  transition: 0.25s;
+  box-shadow: none;
+
+  button {
+    background-color: #fff;
+    // padding-left: 10px;
+    // border-radius: 0px 6px 6px 0px;
+    border: none;
+    // background-color: var(--background-color);
+
+    .mat-icon {
+      transition: transform 0.3s ease;
+    }
+
+    @keyframes rotateIcon {
+      from {
+        transform: rotate(0deg);
+      }
+
+      to {
+        transform: rotate(90deg);
+      }
+    }
+  }
 }
+
 mat-sidenav-container {
   height: 100%;
 
-
-  // mat-sidenav.mat-drawer-opened .icon-container {
-  //   left: 20px; /* Ajusta esta propiedad para que el icono se mueva cuando el sidenav está abierto */
-  // }
-  mat-nav-list {
-    .title {
-      margin: 0;
-      text-align: center;
-      font-weight: 500;
+  mat-sidenav {
+    background-color: var(--background-color);
+    mat-nav-list {
+      .title {
+        margin: 0;
+        text-align: center;
+        font-weight: 500;
+      }
     }
   }
 
   mat-sidenav-content {
+    margin: 30px;
+
     h1 {
       color: var(--primary-color);
     }

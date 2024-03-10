@@ -1,0 +1,48 @@
+@use '@angular/material' as mat;
+@use './carousel-theme' as carousel;
+
+
+@include mat.core();
+
+$my-primary: mat.define-palette(mat.$purple-palette, 500, 900, 300); // Default color, lighter, darker, text
+$my-accent: mat.define-palette(mat.$pink-palette, A200, A100, A400);
+$my-warn: mat.define-palette(mat.$red-palette, A200, A100, A400);
+$my-background-color: mat.define-palette(mat.$deep-purple-palette, 400, 900, A200);
+$my-light-theme: mat.define-light-theme((color: (primary: $my-primary,
+        accent: $my-accent,
+        warn: $my-warn,
+      ),
+      typography: mat.define-typography-config(),
+      density: 0,
+    ));
+$my-dark-theme: mat.define-dark-theme((color: (primary: $my-primary,
+        accent: $my-accent,
+        warn: $my-warn,
+        background: $my-background-color,
+      ),
+      typography: mat.define-typography-config(),
+      density: 0,
+    ));
+
+// The "warn" palette is optional and defaults to red if not specified.
+$my-warn: mat.define-palette(mat.$red-palette);
+
+$my-theme: mat.define-light-theme((color: (primary: $my-primary,
+        accent: $my-accent,
+      ),
+      typography: mat.define-typography-config($font-family: serif,
+      ),
+    ));
+
+@include mat.all-component-themes($my-theme);
+@include carousel.theme($my-theme);
+
+// // Apply the dark theme by default
+// @include mat.core-theme($my-dark-theme);
+// @include mat.button-color($my-dark-theme);
+
+// // Apply the light theme only when the user prefers light themes.
+// @media (prefers-color-scheme: light) {
+//   @include mat.core-color($my-light-theme);
+//   @include mat.button-color($my-light-theme);
+// }

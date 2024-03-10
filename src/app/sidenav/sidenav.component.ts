@@ -1,37 +1,26 @@
-import { Component, ViewChild, ElementRef } from '@angular/core';
+import { ThemeService } from '../theme.service'
+import { Component, ViewChild } from '@angular/core';
 import { MatSidenav, MatSidenavModule } from '@angular/material/sidenav';
 import { SidenavService } from '../services/sidenav.service';
-import { trigger, state, style, animate, transition } from '@angular/animations';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
+import { NgClass } from '@angular/common';
+
 
 @Component({
   selector: 'app-sidenav',
   standalone: true,
-  imports: [MatSidenavModule, MatIconModule, MatListModule],
-  animations: [
-    trigger('rotate', [
-      state('open', style({ transform: 'rotate(90deg)' })),
-      state('close', style({ transform: 'rotate(0deg)' })),
-      transition('open <=> close', animate('0.3s ease'))
-    ])
-  ],
+  imports: [MatSidenavModule, MatIconModule, MatListModule, NgClass],
   template: `
-    <!-- <div #menuicon class="icon-container" (click)="sidenav.toggle()">
-      <button mat-icon-button>
-        <mat-icon>menu</mat-icon>
-      </button>
-    </div> -->
-    <mat-sidenav-container hasBackdrop=false>
-      <!-- <mat-sidenav #sidenav mode="side" (openedStart)="drawerOpened()" (closedStart)="drawerClosed()"> -->
-      <mat-sidenav #sidenav mode="side">
+    <mat-sidenav-container [ngClass]="{ 'dark-theme': isDarkTheme }" hasBackdrop=false>
+      <mat-sidenav #sidenav mode="side" [ngClass]="{ 'dark-theme': isDarkTheme }">
         <mat-nav-list>
           <h3 class="title">Job Analysis</h3>
           <mat-list-item>
             <!-- <mat-icon matListItemIcon>menu</mat-icon> -->
             <!-- <span matListItemTitle>Pepper</span>
             <span matListItemLine>Produced by a plant</span> -->
-            <span>Pepper</span>
+            <span>Fertility Rate</span>
           </mat-list-item>
           <h3 class="title">Fertility Analysis</h3>
           <mat-list-item>
@@ -40,6 +29,7 @@ import { MatListModule } from '@angular/material/list';
         </mat-nav-list>
       </mat-sidenav>
       <mat-sidenav-content>
+        usar tabs para mostrar
           <h1>Main</h1>
       </mat-sidenav-content>
     </mat-sidenav-container>
@@ -48,9 +38,15 @@ import { MatListModule } from '@angular/material/list';
 })
 export class SidenavComponent {
   @ViewChild('sidenav') sidenav!: MatSidenav;
+  isDarkTheme: boolean = false;
 
-  constructor(private sidenavService: SidenavService) {}
+  constructor(private sidenavService: SidenavService, private themeService: ThemeService) { }
 
+  ngOnInit(): void {
+    this.themeService.getCurrentTheme().subscribe(theme => {
+      this.isDarkTheme = theme === 'dark';
+    });
+  }
   ngAfterViewInit() {
     this.sidenavService.setSidenav(this.sidenav);
   }

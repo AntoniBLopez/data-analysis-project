@@ -1,3 +1,4 @@
+import { ThemeService } from './theme.service';
 import { Component, ViewChild } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
@@ -6,20 +7,24 @@ import { MatSidenav, MatSidenavModule } from '@angular/material/sidenav';
 import { SidenavService } from './services/sidenav.service';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
-
+import { MatCardModule } from '@angular/material/card';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, MatSlideToggleModule, SidenavComponent, MatSidenavModule, MatIconModule, MatButtonModule],
+  imports: [RouterOutlet, MatSlideToggleModule, SidenavComponent, MatSidenavModule, MatIconModule, MatButtonModule, MatCardModule],
   template: `
     <header>
       <nav>
-        <button mat-button (click)="toggleSidenav()">
-          <mat-icon>menu</mat-icon>
+        <mat-card-header>
+          <button mat-button (click)="toggleSidenav()" title="Topics Menu">
+            <mat-icon>menu</mat-icon>
+          </button>
+          <img src="../assets/logo.png" alt="Icono principal de la página">
+        </mat-card-header>
+        <button mat-button (click)="toggleTheme()" title="Topics Menu">
+          <mat-icon >{{ isDarkMode ? 'nights_stay' : 'wb_sunny' }}</mat-icon>
         </button>
-        <img src="https://img.icons8.com/nolan/96/financial-growth-analysis.png" alt="Icono principal de la página">
-        <mat-slide-toggle>Toggle me!</mat-slide-toggle>
       </nav>
     </header>
 
@@ -41,9 +46,28 @@ import { MatButtonModule } from '@angular/material/button';
 })
 export class AppComponent {
   @ViewChild('sidenav') sidenav!: MatSidenav;
-  title = 'data-analysis-project';
+  isDarkMode: boolean;
+  currentTheme: string = '';
 
-  constructor(private sidenavService: SidenavService) { }
+  constructor(private sidenavService: SidenavService, private themeService: ThemeService) {
+    this.isDarkMode = this.themeService.isDarkMode();
+  }
+
+  ngOnInit(): void {
+    this.themeService.getCurrentTheme().subscribe(theme => {
+      this.currentTheme = theme
+    })
+  }
+
+  toggleTheme() {
+    this.isDarkMode = !this.isDarkMode;
+    if (this.currentTheme == 'light') {
+      this.themeService.setTheme('dark');
+    } else {
+      this.themeService.setTheme('light');
+    }
+    this.themeService.setDarkMode(this.isDarkMode);
+  }
 
   toggleSidenav() {
     this.sidenavService.toggle();

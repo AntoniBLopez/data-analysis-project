@@ -1,0 +1,33 @@
+@use 'sass:map';
+@use '@angular/material' as mat;
+
+@mixin color($theme) {
+  .dark-theme {
+    background-color: mat.get-theme-color($theme, primary, 500);
+  }
+  .my-carousel-button {
+    // Read the 500 hue from the primary color palette.
+    color: mat.get-theme-color($theme, primary, 500);
+  }
+  // .background-color {
+  //   // Read the 500 hue from the primary color palette.
+  //   background-color: mat.get-theme-color($theme, primary, 500);
+  // }
+}
+
+@mixin typography($theme) {
+  .my-carousel {
+    // Get the headline font from the theme.
+    font: mat.get-theme-typography($theme, headline-1);
+  }
+}
+
+@mixin theme($theme) {
+  @if mat.theme-has($theme, color) {
+    @include color($theme);
+  }
+
+  @if mat.theme-has($theme, typography) {
+    @include typography($theme);
+  }
+}

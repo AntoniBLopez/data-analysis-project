@@ -1,49 +1,62 @@
-  nav {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    height: 60px;
+  header {
+    background: linear-gradient(90deg, rgba(0, 147, 255, 1) 0%, rgba(255, 142, 142, 1) 50%, rgba(245, 255, 0, 1) 100%); // potente a amarillo
 
-    button {
-      background-color: var(--background-color);
-      border: none;
-      box-shadow: none;
-      height: 100%;
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 60px;
 
-      mat-icon {
-        transform: scale(3);
-        margin: 0px 3px 0px 0px;
+      mat-card-header {
+        display: flex;
+        align-items: center;
+        height: 100%;
+
+        button {
+          height: 100%;
+
+          mat-icon {
+            transform: scale(2.5);
+            margin: 0px 3px 0px 0px;
+          }
+        }
+
+        img {
+          // width: 350px;
+        }
+      }
+
+      mat-slide-toggle {
+        padding-right: 20px;
+
       }
     }
+  }
+
+  footer {
+    display: flex;
+    justify-content: center;
+    height: 80px;
+    align-items: center;
+    gap: 10px;
 
     img {
       width: 40px;
       height: 40px;
     }
-  }
 
-footer {
-  display: flex;
-  justify-content: center;
-  height: 80px;
-  align-items: center;
-  gap: 10px;
+    img:hover {
+      transform: scale(1.2);
+      transition: ease 0.5;
+    }
 
-  img {
-    width: 40px;
-    height: 40px;
-  }
-  img:hover {
-    transform: scale(1.2);
-    transition: ease 0.5;
-  }
+    .myWebimg {
+      width: 35px;
+      height: 35px;
+    }
 
-  .myWebimg {
-    width: 35px;
-    height: 35px;
+    .myWebimg:hover {
+      transform: scale(1.2);
+      transition: ease 0.5;
+    }
   }
-  .myWebimg:hover {
-    transform: scale(1.2);
-    transition: ease 0.5;
-  }
-}

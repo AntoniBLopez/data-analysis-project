@@ -1,40 +1,8 @@
-.icon-container {
-  // position: absolute;
-  // z-index: 10;
-  // top: 14px;
-  // left: 0px;
-  transform: translateY(-50%);
-  transition: 0.25s;
-  box-shadow: none;
-
-  button {
-    background-color: #fff;
-    // padding-left: 10px;
-    // border-radius: 0px 6px 6px 0px;
-    border: none;
-    // background-color: var(--background-color);
-
-    .mat-icon {
-      transition: transform 0.3s ease;
-    }
-
-    @keyframes rotateIcon {
-      from {
-        transform: rotate(0deg);
-      }
-
-      to {
-        transform: rotate(90deg);
-      }
-    }
-  }
-}
+@import '../../theme/my-theme.scss';
 
 mat-sidenav-container {
   height: 100%;
 
-  mat-sidenav {
-    background-color: var(--background-color);
     mat-nav-list {
       .title {
         margin: 0;
@@ -42,13 +10,8 @@ mat-sidenav-container {
         font-weight: 500;
       }
     }
-  }
 
   mat-sidenav-content {
-    margin: 30px;
-
-    h1 {
-      color: var(--primary-color);
-    }
+    padding: 30px;
   }
 }

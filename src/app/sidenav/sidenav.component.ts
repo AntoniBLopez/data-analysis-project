@@ -4,13 +4,14 @@ import { MatSidenav, MatSidenavModule } from '@angular/material/sidenav';
 import { SidenavService } from '../services/sidenav.service';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
-import { NgClass } from '@angular/common';
+import { CommonModule } from '@angular/common';
+
 
 
 @Component({
   selector: 'app-sidenav',
   standalone: true,
-  imports: [MatSidenavModule, MatIconModule, MatListModule, NgClass],
+  imports: [MatSidenavModule, MatIconModule, MatListModule, CommonModule],
   template: `
     <mat-sidenav-container [ngClass]="{ 'dark-theme': isDarkTheme }" hasBackdrop=false>
       <mat-sidenav #sidenav mode="side" [ngClass]="{ 'dark-theme': isDarkTheme }">

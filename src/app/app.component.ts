@@ -1,10 +1,10 @@
-import { ThemeService } from './theme.service';
 import { Component, ViewChild } from '@angular/core';
+import { MatSidenav, MatSidenavModule } from '@angular/material/sidenav';
+import { ThemeService } from './theme.service';
+import { SidenavService } from './services/sidenav.service';
 import { RouterOutlet } from '@angular/router';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { SidenavComponent } from './sidenav/sidenav.component';
-import { MatSidenav, MatSidenavModule } from '@angular/material/sidenav';
-import { SidenavService } from './services/sidenav.service';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
@@ -14,34 +14,34 @@ import { MatCardModule } from '@angular/material/card';
   standalone: true,
   imports: [RouterOutlet, MatSlideToggleModule, SidenavComponent, MatSidenavModule, MatIconModule, MatButtonModule, MatCardModule],
   template: `
-    <header>
-      <nav>
-        <mat-card-header>
-          <button mat-button (click)="toggleSidenav()" title="Topics Menu">
-            <mat-icon>menu</mat-icon>
-          </button>
-          <img src="../assets/logo.png" alt="Icono principal de la página">
-        </mat-card-header>
-        <button mat-button (click)="toggleTheme()" title="Topics Menu">
-          <mat-icon >{{ isDarkMode ? 'nights_stay' : 'wb_sunny' }}</mat-icon>
+  <header>
+    <nav>
+      <mat-card-header>
+        <button mat-button (click)="toggleSidenav()" title="Topics Menu">
+          <mat-icon>menu</mat-icon>
         </button>
-      </nav>
-    </header>
+        <img src="../assets/logo.png" alt="Icono principal de la página">
+      </mat-card-header>
+      <button mat-button (click)="toggleTheme()" title="Topics Menu">
+        <mat-icon >{{ isDarkMode ? 'nights_stay' : 'wb_sunny' }}</mat-icon>
+      </button>
+    </nav>
+  </header>
 
-    <app-sidenav />
+  <app-sidenav />
 
-    <footer>
-      <a href="https://github.com/ToniBLopez/data-analysis-project">
-        <img src="https://img.icons8.com/ios-glyphs/60/github.png" alt="Icono para acceder a mi GithHub y ver el código fuente">
-      </a>
-      <a href="https://www.linkedin.com/in/toniblopez/">
-        <img src="https://img.icons8.com/fluency/48/linkedin.png" alt="Icono para acceder a mi Linkedin">
-      </a>
-      <a href="https://toniblopez.github.io/">
-        <img class="myWebimg" src="https://img.icons8.com/ios/100/resume.png" alt="Icono para acceder a mi sitio web">
-      </a>
-    </footer>
-  `,
+  <footer>
+    <a href="https://github.com/ToniBLopez/data-analysis-project">
+      <img src="https://img.icons8.com/ios-glyphs/60/github.png" alt="Icono para acceder a mi GithHub y ver el código fuente">
+    </a>
+    <a href="https://www.linkedin.com/in/toniblopez/">
+      <img src="https://img.icons8.com/fluency/48/linkedin.png" alt="Icono para acceder a mi Linkedin">
+    </a>
+    <a href="https://toniblopez.github.io/">
+      <img class="myWebimg" src="https://img.icons8.com/ios/100/resume.png" alt="Icono para acceder a mi sitio web">
+    </a>
+  </footer>
+`,
   styleUrl: './app.component.scss'
 })
 export class AppComponent {

@@ -219,7 +219,7 @@
     "components": [
         {
             "name": "AppComponent",
-            "id": "component-AppComponent-b4c42bb631e09ad9c93161746a548fd09195e7da88d596cfcbd460ae1ebc3a9a57b4188c36e46fee5ab7ad16ae8974eff59a6a1d2ba499e9a623e74353b96355",
+            "id": "component-AppComponent-8b6d2414265e9d53c3a56df6f0d59c5a81a3a66307b0a191c272cf6e6f38ef6d2b542f1dcff46710e2b80964985e9cbc42bf98815b85b5f1961e65c9165dda64",
             "file": "src/app/app.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -343,7 +343,7 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { ThemeService } from './theme.service';\r\nimport { Component, ViewChild } from '@angular/core';\r\nimport { RouterOutlet } from '@angular/router';\r\nimport { MatSlideToggleModule } from '@angular/material/slide-toggle';\r\nimport { SidenavComponent } from './sidenav/sidenav.component';\r\nimport { MatSidenav, MatSidenavModule } from '@angular/material/sidenav';\r\nimport { SidenavService } from './services/sidenav.service';\r\nimport { MatIconModule } from '@angular/material/icon';\r\nimport { MatButtonModule } from '@angular/material/button';\r\nimport { MatCardModule } from '@angular/material/card';\r\n\r\n@Component({\r\n  selector: 'app-root',\r\n  standalone: true,\r\n  imports: [RouterOutlet, MatSlideToggleModule, SidenavComponent, MatSidenavModule, MatIconModule, MatButtonModule, MatCardModule],\r\n  template: `\r\n    <header>\r\n      <nav>\r\n        <mat-card-header>\r\n          <button mat-button (click)=\"toggleSidenav()\" title=\"Topics Menu\">\r\n            <mat-icon>menu</mat-icon>\r\n          </button>\r\n          <img src=\"../assets/logo.png\" alt=\"Icono principal de la página\">\r\n        </mat-card-header>\r\n        <button mat-button (click)=\"toggleTheme()\" title=\"Topics Menu\">\r\n          <mat-icon >{{ isDarkMode ? 'nights_stay' : 'wb_sunny' }}</mat-icon>\r\n        </button>\r\n      </nav>\r\n    </header>\r\n\r\n    <app-sidenav />\r\n\r\n    <footer>\r\n      <a href=\"https://github.com/ToniBLopez/data-analysis-project\">\r\n        <img src=\"https://img.icons8.com/ios-glyphs/60/github.png\" alt=\"Icono para acceder a mi GithHub y ver el código fuente\">\r\n      </a>\r\n      <a href=\"https://www.linkedin.com/in/toniblopez/\">\r\n        <img src=\"https://img.icons8.com/fluency/48/linkedin.png\" alt=\"Icono para acceder a mi Linkedin\">\r\n      </a>\r\n      <a href=\"https://toniblopez.github.io/\">\r\n        <img class=\"myWebimg\" src=\"https://img.icons8.com/ios/100/resume.png\" alt=\"Icono para acceder a mi sitio web\">\r\n      </a>\r\n    </footer>\r\n  `,\r\n  styleUrl: './app.component.scss'\r\n})\r\nexport class AppComponent {\r\n  @ViewChild('sidenav') sidenav!: MatSidenav;\r\n  isDarkMode: boolean;\r\n  currentTheme: string = '';\r\n\r\n  constructor(private sidenavService: SidenavService, private themeService: ThemeService) {\r\n    this.isDarkMode = this.themeService.isDarkMode();\r\n  }\r\n\r\n  ngOnInit(): void {\r\n    this.themeService.getCurrentTheme().subscribe(theme => {\r\n      this.currentTheme = theme\r\n    })\r\n  }\r\n\r\n  toggleTheme() {\r\n    this.isDarkMode = !this.isDarkMode;\r\n    if (this.currentTheme == 'light') {\r\n      this.themeService.setTheme('dark');\r\n    } else {\r\n      this.themeService.setTheme('light');\r\n    }\r\n    this.themeService.setDarkMode(this.isDarkMode);\r\n  }\r\n\r\n  toggleSidenav() {\r\n    this.sidenavService.toggle();\r\n  }\r\n}\r\n",
+            "sourceCode": "import { Component, ViewChild } from '@angular/core';\r\nimport { MatSidenav, MatSidenavModule } from '@angular/material/sidenav';\r\nimport { ThemeService } from './theme.service';\r\nimport { SidenavService } from './services/sidenav.service';\r\nimport { RouterOutlet } from '@angular/router';\r\nimport { MatSlideToggleModule } from '@angular/material/slide-toggle';\r\nimport { SidenavComponent } from './sidenav/sidenav.component';\r\nimport { MatIconModule } from '@angular/material/icon';\r\nimport { MatButtonModule } from '@angular/material/button';\r\nimport { MatCardModule } from '@angular/material/card';\r\n\r\n@Component({\r\n  selector: 'app-root',\r\n  standalone: true,\r\n  imports: [RouterOutlet, MatSlideToggleModule, SidenavComponent, MatSidenavModule, MatIconModule, MatButtonModule, MatCardModule],\r\n  template: `\r\n  <header>\r\n    <nav>\r\n      <mat-card-header>\r\n        <button mat-button (click)=\"toggleSidenav()\" title=\"Topics Menu\">\r\n          <mat-icon>menu</mat-icon>\r\n        </button>\r\n        <img src=\"../assets/logo.png\" alt=\"Icono principal de la página\">\r\n      </mat-card-header>\r\n      <button mat-button (click)=\"toggleTheme()\" title=\"Topics Menu\">\r\n        <mat-icon >{{ isDarkMode ? 'nights_stay' : 'wb_sunny' }}</mat-icon>\r\n      </button>\r\n    </nav>\r\n  </header>\r\n\r\n  <app-sidenav />\r\n\r\n  <footer>\r\n    <a href=\"https://github.com/ToniBLopez/data-analysis-project\">\r\n      <img src=\"https://img.icons8.com/ios-glyphs/60/github.png\" alt=\"Icono para acceder a mi GithHub y ver el código fuente\">\r\n    </a>\r\n    <a href=\"https://www.linkedin.com/in/toniblopez/\">\r\n      <img src=\"https://img.icons8.com/fluency/48/linkedin.png\" alt=\"Icono para acceder a mi Linkedin\">\r\n    </a>\r\n    <a href=\"https://toniblopez.github.io/\">\r\n      <img class=\"myWebimg\" src=\"https://img.icons8.com/ios/100/resume.png\" alt=\"Icono para acceder a mi sitio web\">\r\n    </a>\r\n  </footer>\r\n`,\r\n  styleUrl: './app.component.scss'\r\n})\r\nexport class AppComponent {\r\n  @ViewChild('sidenav') sidenav!: MatSidenav;\r\n  isDarkMode: boolean;\r\n  currentTheme: string = '';\r\n\r\n  constructor(private sidenavService: SidenavService, private themeService: ThemeService) {\r\n    this.isDarkMode = this.themeService.isDarkMode();\r\n  }\r\n\r\n  ngOnInit(): void {\r\n    this.themeService.getCurrentTheme().subscribe(theme => {\r\n      this.currentTheme = theme\r\n    })\r\n  }\r\n\r\n  toggleTheme() {\r\n    this.isDarkMode = !this.isDarkMode;\r\n    if (this.currentTheme == 'light') {\r\n      this.themeService.setTheme('dark');\r\n    } else {\r\n      this.themeService.setTheme('light');\r\n    }\r\n    this.themeService.setDarkMode(this.isDarkMode);\r\n  }\r\n\r\n  toggleSidenav() {\r\n    this.sidenavService.toggle();\r\n  }\r\n}\r\n",
             "styleUrl": "./app.component.scss",
             "assetsDirs": [],
             "styleUrlsData": "",
@@ -705,7 +705,7 @@
         },
         {
             "name": "SidenavComponent",
-            "id": "component-SidenavComponent-258ac5058a92c5fe808275fe4bfe12959e7d1ad650e8f9a8665f3e17b24db269b8ea2d1ab51b60e45c06a4a92cf878af8f9d77e18a76d98e89fbbfcdd2c1febf",
+            "id": "component-SidenavComponent-3acb98ac218975dbdad3e5e5f3ac80a1c44286d2f36b02ca99f84a309485d90b2492f337d2f59201450ce04bb6632b34023515183f32ba47b1b74f4c01246cdd",
             "file": "src/app/sidenav/sidenav.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -730,7 +730,7 @@
                     "type": "boolean",
                     "optional": false,
                     "description": "",
-                    "line": 41
+                    "line": 42
                 },
                 {
                     "name": "sidenav",
@@ -739,7 +739,7 @@
                     "type": "MatSidenav",
                     "optional": false,
                     "description": "",
-                    "line": 40,
+                    "line": 41,
                     "decorators": [
                         {
                             "name": "ViewChild",
@@ -758,7 +758,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 50,
+                    "line": 51,
                     "deprecated": false,
                     "deprecationMessage": ""
                 },
@@ -768,7 +768,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 45,
+                    "line": 46,
                     "deprecated": false,
                     "deprecationMessage": ""
                 }
@@ -792,13 +792,14 @@
                     "type": "module"
                 },
                 {
-                    "name": "NgClass"
+                    "name": "CommonModule",
+                    "type": "module"
                 }
             ],
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { ThemeService } from '../theme.service'\r\nimport { Component, ViewChild } from '@angular/core';\r\nimport { MatSidenav, MatSidenavModule } from '@angular/material/sidenav';\r\nimport { SidenavService } from '../services/sidenav.service';\r\nimport { MatIconModule } from '@angular/material/icon';\r\nimport { MatListModule } from '@angular/material/list';\r\nimport { NgClass } from '@angular/common';\r\n\r\n\r\n@Component({\r\n  selector: 'app-sidenav',\r\n  standalone: true,\r\n  imports: [MatSidenavModule, MatIconModule, MatListModule, NgClass],\r\n  template: `\r\n    <mat-sidenav-container [ngClass]=\"{ 'dark-theme': isDarkTheme }\" hasBackdrop=false>\r\n      <mat-sidenav #sidenav mode=\"side\" [ngClass]=\"{ 'dark-theme': isDarkTheme }\">\r\n        <mat-nav-list>\r\n          <h3 class=\"title\">Job Analysis</h3>\r\n          <mat-list-item>\r\n            <!-- <mat-icon matListItemIcon>menu</mat-icon> -->\r\n            <!-- <span matListItemTitle>Pepper</span>\r\n            <span matListItemLine>Produced by a plant</span> -->\r\n            <span>Fertility Rate</span>\r\n          </mat-list-item>\r\n          <h3 class=\"title\">Fertility Analysis</h3>\r\n          <mat-list-item>\r\n            <span>Pepper</span>\r\n          </mat-list-item>\r\n        </mat-nav-list>\r\n      </mat-sidenav>\r\n      <mat-sidenav-content>\r\n        usar tabs para mostrar\r\n          <h1>Main</h1>\r\n      </mat-sidenav-content>\r\n    </mat-sidenav-container>\r\n  `,\r\n  styleUrl: './sidenav.component.scss'\r\n})\r\nexport class SidenavComponent {\r\n  @ViewChild('sidenav') sidenav!: MatSidenav;\r\n  isDarkTheme: boolean = false;\r\n\r\n  constructor(private sidenavService: SidenavService, private themeService: ThemeService) { }\r\n\r\n  ngOnInit(): void {\r\n    this.themeService.getCurrentTheme().subscribe(theme => {\r\n      this.isDarkTheme = theme === 'dark';\r\n    });\r\n  }\r\n  ngAfterViewInit() {\r\n    this.sidenavService.setSidenav(this.sidenav);\r\n  }\r\n  // @ViewChild('menuicon', { static: true }) menuicon!: ElementRef;\r\n}\r\n",
+            "sourceCode": "import { ThemeService } from '../theme.service'\r\nimport { Component, ViewChild } from '@angular/core';\r\nimport { MatSidenav, MatSidenavModule } from '@angular/material/sidenav';\r\nimport { SidenavService } from '../services/sidenav.service';\r\nimport { MatIconModule } from '@angular/material/icon';\r\nimport { MatListModule } from '@angular/material/list';\r\nimport { CommonModule } from '@angular/common';\r\n\r\n\r\n\r\n@Component({\r\n  selector: 'app-sidenav',\r\n  standalone: true,\r\n  imports: [MatSidenavModule, MatIconModule, MatListModule, CommonModule],\r\n  template: `\r\n    <mat-sidenav-container [ngClass]=\"{ 'dark-theme': isDarkTheme }\" hasBackdrop=false>\r\n      <mat-sidenav #sidenav mode=\"side\" [ngClass]=\"{ 'dark-theme': isDarkTheme }\">\r\n        <mat-nav-list>\r\n          <h3 class=\"title\">Job Analysis</h3>\r\n          <mat-list-item>\r\n            <!-- <mat-icon matListItemIcon>menu</mat-icon> -->\r\n            <!-- <span matListItemTitle>Pepper</span>\r\n            <span matListItemLine>Produced by a plant</span> -->\r\n            <span>Fertility Rate</span>\r\n          </mat-list-item>\r\n          <h3 class=\"title\">Fertility Analysis</h3>\r\n          <mat-list-item>\r\n            <span>Pepper</span>\r\n          </mat-list-item>\r\n        </mat-nav-list>\r\n      </mat-sidenav>\r\n      <mat-sidenav-content>\r\n        usar tabs para mostrar\r\n          <h1>Main</h1>\r\n      </mat-sidenav-content>\r\n    </mat-sidenav-container>\r\n  `,\r\n  styleUrl: './sidenav.component.scss'\r\n})\r\nexport class SidenavComponent {\r\n  @ViewChild('sidenav') sidenav!: MatSidenav;\r\n  isDarkTheme: boolean = false;\r\n\r\n  constructor(private sidenavService: SidenavService, private themeService: ThemeService) { }\r\n\r\n  ngOnInit(): void {\r\n    this.themeService.getCurrentTheme().subscribe(theme => {\r\n      this.isDarkTheme = theme === 'dark';\r\n    });\r\n  }\r\n  ngAfterViewInit() {\r\n    this.sidenavService.setSidenav(this.sidenav);\r\n  }\r\n  // @ViewChild('menuicon', { static: true }) menuicon!: ElementRef;\r\n}\r\n",
             "styleUrl": "./sidenav.component.scss",
             "assetsDirs": [],
             "styleUrlsData": "",
@@ -822,7 +823,7 @@
                         "deprecationMessage": ""
                     }
                 ],
-                "line": 41,
+                "line": 42,
                 "jsdoctags": [
                     {
                         "name": "sidenavService",
@@ -934,6 +935,16 @@
                 "name": "meta",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
+                "file": "src/app/app.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Meta<AppComponent>",
+                "defaultValue": "{\r\n  title: 'Components/App',\r\n  component: AppComponent,\r\n  tags: ['autodocs'],\r\n  decorators: [\r\n    applicationConfig({\r\n        providers: [provideAnimations()],\r\n      }),\r\n  ],\r\n  argTypes: {\r\n    isDarkMode: { control: 'boolean' }\r\n  },\r\n}"
+            },
+            {
+                "name": "meta",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
                 "file": "src/stories/button.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
@@ -961,6 +972,16 @@
                 "defaultValue": "{\n  title: 'Example/Page',\n  component: PageComponent,\n  parameters: {\n    // More on how to position stories at: https://storybook.js.org/docs/configure/story-layout\n    layout: 'fullscreen',\n  },\n}"
             },
             {
+                "name": "meta",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/app/sidenav/sidenav.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Meta<SidenavComponent>",
+                "defaultValue": "{\r\n  title: 'Components/Sidenav',\r\n  component: SidenavComponent,\r\n  tags: ['autodocs'],\r\n  decorators: [\r\n    applicationConfig({\r\n        providers: [provideAnimations()],\r\n      }),\r\n  ],\r\n  argTypes: {\r\n    isDarkTheme: { control: 'boolean' }\r\n  },\r\n}"
+            },
+            {
                 "name": "preview",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
@@ -974,11 +995,31 @@
                 "name": "Primary",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
+                "file": "src/app/app.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\r\n  render: () => ({\r\n    props: {\r\n      label: 'AppComponent',\r\n      primary: true,\r\n    },\r\n  }),\r\n}"
+            },
+            {
+                "name": "Primary",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
                 "file": "src/stories/button.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
                 "defaultValue": "{\n  args: {\n    primary: true,\n    label: 'Button',\n  },\n}"
+            },
+            {
+                "name": "Primary",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/app/sidenav/sidenav.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\r\n  render: () => ({\r\n    props: {\r\n      label: 'SidenavComponent',\r\n      primary: true,\r\n    },\r\n  }),\r\n}"
             },
             {
                 "name": "Secondary",
@@ -1017,6 +1058,17 @@
                 "name": "Story",
                 "ctype": "miscellaneous",
                 "subtype": "typealias",
+                "rawtype": "StoryObj<AppComponent>",
+                "file": "src/app/app.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "kind": 183
+            },
+            {
+                "name": "Story",
+                "ctype": "miscellaneous",
+                "subtype": "typealias",
                 "rawtype": "StoryObj<ButtonComponent>",
                 "file": "src/stories/button.stories.ts",
                 "deprecated": false,
@@ -1041,6 +1093,17 @@
                 "subtype": "typealias",
                 "rawtype": "StoryObj<PageComponent>",
                 "file": "src/stories/page.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "kind": 183
+            },
+            {
+                "name": "Story",
+                "ctype": "miscellaneous",
+                "subtype": "typealias",
+                "rawtype": "StoryObj<SidenavComponent>",
+                "file": "src/app/sidenav/sidenav.component.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "description": "",
@@ -1211,6 +1274,50 @@
                     "defaultValue": "{\n  title: 'Example/Page',\n  component: PageComponent,\n  parameters: {\n    // More on how to position stories at: https://storybook.js.org/docs/configure/story-layout\n    layout: 'fullscreen',\n  },\n}"
                 }
             ],
+            "src/app/app.component.stories.ts": [
+                {
+                    "name": "meta",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/app.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Meta<AppComponent>",
+                    "defaultValue": "{\r\n  title: 'Components/App',\r\n  component: AppComponent,\r\n  tags: ['autodocs'],\r\n  decorators: [\r\n    applicationConfig({\r\n        providers: [provideAnimations()],\r\n      }),\r\n  ],\r\n  argTypes: {\r\n    isDarkMode: { control: 'boolean' }\r\n  },\r\n}"
+                },
+                {
+                    "name": "Primary",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/app.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\r\n  render: () => ({\r\n    props: {\r\n      label: 'AppComponent',\r\n      primary: true,\r\n    },\r\n  }),\r\n}"
+                }
+            ],
+            "src/app/sidenav/sidenav.component.stories.ts": [
+                {
+                    "name": "meta",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/sidenav/sidenav.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Meta<SidenavComponent>",
+                    "defaultValue": "{\r\n  title: 'Components/Sidenav',\r\n  component: SidenavComponent,\r\n  tags: ['autodocs'],\r\n  decorators: [\r\n    applicationConfig({\r\n        providers: [provideAnimations()],\r\n      }),\r\n  ],\r\n  argTypes: {\r\n    isDarkTheme: { control: 'boolean' }\r\n  },\r\n}"
+                },
+                {
+                    "name": "Primary",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/sidenav/sidenav.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\r\n  render: () => ({\r\n    props: {\r\n      label: 'SidenavComponent',\r\n      primary: true,\r\n    },\r\n  }),\r\n}"
+                }
+            ],
             ".storybook/preview.ts": [
                 {
                     "name": "preview",
@@ -1227,6 +1334,19 @@
         "groupedFunctions": {},
         "groupedEnumerations": {},
         "groupedTypeAliases": {
+            "src/app/app.component.stories.ts": [
+                {
+                    "name": "Story",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "StoryObj<AppComponent>",
+                    "file": "src/app/app.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 183
+                }
+            ],
             "src/stories/button.stories.ts": [
                 {
                     "name": "Story",
@@ -1265,12 +1385,25 @@
                     "description": "",
                     "kind": 183
                 }
+            ],
+            "src/app/sidenav/sidenav.component.stories.ts": [
+                {
+                    "name": "Story",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "StoryObj<SidenavComponent>",
+                    "file": "src/app/sidenav/sidenav.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 183
+                }
             ]
         }
     },
     "routes": [],
     "coverage": {
-        "count": 3,
+        "count": 2,
         "status": "low",
         "files": [
             {
@@ -1279,6 +1412,26 @@
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
                 "name": "preview",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/app.component.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "meta",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/app.component.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Primary",
                 "coveragePercent": 0,
                 "coverageCount": "0/1",
                 "status": "low"
@@ -1329,6 +1482,26 @@
                 "name": "SidenavService",
                 "coveragePercent": 0,
                 "coverageCount": "0/4",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/sidenav/sidenav.component.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "meta",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/sidenav/sidenav.component.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Primary",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
                 "status": "low"
             },
             {

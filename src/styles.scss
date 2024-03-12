@@ -1,4 +1,4 @@
-@import './theme/my-theme.scss';
+// @import './app/theme/my-theme.scss';
 
 
 :root {
@@ -48,7 +48,7 @@ body {
   font-family: Roboto, "Helvetica Neue", sans-serif;
 }
 
-body.dark-theme mat-sidenav-container {
-  background-color: #333; // Aplica el color de fondo oscuro al mat-sidenav-container
-  color: #fff; // Cambia el color del texto a blanco
-}
+// body.dark-theme mat-sidenav-container {
+//   background-color: #333; // Aplica el color de fondo oscuro al mat-sidenav-container
+//   color: #fff; // Cambia el color del texto a blanco
+// }

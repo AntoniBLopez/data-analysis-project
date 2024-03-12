@@ -1,62 +1,62 @@
-  header {
-    background: linear-gradient(90deg, rgba(0, 147, 255, 1) 0%, rgba(255, 142, 142, 1) 50%, rgba(245, 255, 0, 1) 100%); // potente a amarillo
+header {
+  background: linear-gradient(90deg, rgba(0, 147, 255, 1) 0%, rgba(255, 142, 142, 1) 50%, rgba(245, 255, 0, 1) 100%); // potente a amarillo
 
-    nav {
+  nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 60px;
+
+    mat-card-header {
       display: flex;
-      justify-content: space-between;
       align-items: center;
-      height: 60px;
+      height: 100%;
 
-      mat-card-header {
-        display: flex;
-        align-items: center;
+      button {
         height: 100%;
 
-        button {
-          height: 100%;
-
-          mat-icon {
-            transform: scale(2.5);
-            margin: 0px 3px 0px 0px;
-          }
-        }
-
-        img {
-          // width: 350px;
+        mat-icon {
+          transform: scale(2.5);
+          margin: 0px 3px 0px 0px;
         }
       }
 
-      mat-slide-toggle {
-        padding-right: 20px;
-
+      img {
+        // width: 350px;
       }
     }
-  }
 
-  footer {
-    display: flex;
-    justify-content: center;
-    height: 80px;
-    align-items: center;
-    gap: 10px;
+    mat-slide-toggle {
+      padding-right: 20px;
 
-    img {
-      width: 40px;
-      height: 40px;
-    }
-
-    img:hover {
-      transform: scale(1.2);
-      transition: ease 0.5;
-    }
-
-    .myWebimg {
-      width: 35px;
-      height: 35px;
-    }
-
-    .myWebimg:hover {
-      transform: scale(1.2);
-      transition: ease 0.5;
     }
   }
+}
+
+footer {
+  display: flex;
+  justify-content: center;
+  height: 80px;
+  align-items: center;
+  gap: 10px;
+
+  img {
+    width: 40px;
+    height: 40px;
+  }
+
+  img:hover {
+    transform: scale(1.2);
+    transition: ease 0.5;
+  }
+
+  .myWebimg {
+    width: 35px;
+    height: 35px;
+  }
+
+  .myWebimg:hover {
+    transform: scale(1.2);
+    transition: ease 0.5;
+  }
+}

@@ -1,4 +1,4 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, Input, ViewChild } from '@angular/core';
 import { MatSidenav, MatSidenavModule } from '@angular/material/sidenav';
 import { ThemeService } from './theme.service';
 import { SidenavService } from './services/sidenav.service';
@@ -18,7 +18,7 @@ import { MatCardModule } from '@angular/material/card';
     <nav>
       <mat-card-header>
         <button mat-button (click)="toggleSidenav()" title="Topics Menu">
-          <mat-icon>menu</mat-icon>
+          <mat-icon>{{label}}</mat-icon>
         </button>
         <img src="../assets/logo.png" alt="Icono principal de la página">
       </mat-card-header>
@@ -48,6 +48,9 @@ export class AppComponent {
   @ViewChild('sidenav') sidenav!: MatSidenav;
   isDarkMode: boolean;
   currentTheme: string = '';
+
+  @Input()
+  label: string = '';
 
   constructor(private sidenavService: SidenavService, private themeService: ThemeService) {
     this.isDarkMode = this.themeService.isDarkMode();

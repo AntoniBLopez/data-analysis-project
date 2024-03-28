@@ -31,7 +31,6 @@ type Story = StoryObj<AppComponent>;
 export const Primary: Story = {
   render: () => ({
     props: {
-      label: 'AppComponent',
       primary: true,
     },
   }),
